@@ -1,0 +1,149 @@
+doctype html
+html
+    head
+        title= `${title} - МоментоДеньги`
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no')
+        meta(name='openstat-verification', content='9a7b460feefee5df83e41fa3217f94c90eb2a410')
+        link(href='https://fonts.googleapis.com/css?family=Open Sans:100,300,400,700,400italic&subset=latin,cyrillic,latin-ext', rel='stylesheet', type='text/css')
+        link(rel='stylesheet', type='text/css', href='/static/css/bootstrap.min.css')
+        link(rel='stylesheet', type='text/css', href='/static/style/style_page.css')
+        link(rel='stylesheet', type='text/css', href='/static/style/fotorama.css')
+        link(rel='stylesheet', type='text/css', href='/static/slick/slick.css')
+        link(rel='stylesheet', href='https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+        script(src='/static/js/jquery.min.js')
+    body
+.layout
+    .header
+        .wrapper
+            button.menu-toggle
+            .logo
+                a(href='/', title='Моменто Деньги')
+    .main
+        .wrapper
+            .leftcol
+                .logo
+                ul
+                    li
+                        a(href='/') Главная
+                    li
+                        a(href='/news/') Новости
+                    li
+                        a(href='/openloan/') Получить заём
+                    li
+                        a(href='/loans/') Каталог займов
+                    li
+                        a(href='/closeloan/') Как погасить заём
+                    li
+                        a(href='/press/') Пресса
+                    li
+                        a(href='/iamthelaw/') Законодательная база
+                    li
+                        a(href='/documents/') Документы
+                    li
+                        a(href='/about/') О компании
+                    li
+                        a(href='/contacts/') Контакты
+                    li
+                        a(href='/jobs/') Вакансии
+                    // <li><a href="/invest/">Инвесторам</a></li>
+                    li
+                        a(href='/rent/') Арендодателям
+                    li
+                        a(href='/ad/') Рекламодателям
+                script.
+                    function showmenu() {
+                        $(".leftcol").addClass("active");
+                        $("body").css("overflow", "hidden");
+                    };
+                    function hidemenu() {
+                        $(".leftcol").removeClass("active");
+                        $("body").css("overflow", "auto");
+                    };
+                    $(function () {
+                        $(".menu-toggle").click(function () {
+                            showmenu();
+                        });
+                    });
+                    $(document).mouseup(function (e) {
+                        var container = $(".leftcol");
+                        if (!container.is(e.target) // if the target of the click isn't the container...
+                            && container.has(e.target).length === 0) // ... nor a descendant of the container
+                        {
+                            hidemenu();
+                        }
+                    });
+            .rightcol
+                h1= title
+                #content
+                    block content
+    .footer
+        .first-row
+            .wrapper
+                .inside
+                    a(href='http://kodeks-mfo.ru/', target='_blank')
+                        img(src='../../static/style/gfx/kodekslogo.png', alt='')
+                    a(href='http://www.npmir.ru/', target='_blank')
+                        img(src='../../static/style/gfx/mirlogo.png', alt='')
+                    a(href='http://www.cbr.ru/', target='_blank')
+                        img(src='../../static/style/gfx/cbrlogo.png', alt='')
+        .second-row
+            .wrapper
+                .left
+                    | © 2011-2017 ООО МКК «МОМЕНТО ДЕНЬГИ»
+                    br
+                    |                             Все авторские права защищены
+                .right
+                    .social
+                        ul
+                            li
+                                a.vk(href='https://vk.com/momento_dengi', target='_blank')
+                            li
+                                a.fb(href='https://www.facebook.com/momentodengi', target='_blank')
+                            li
+                                a.ig(href='https://www.instagram.com/momentodengi', target='_blank')
+
+a#back-to-top(href="#", title="Вверх страницы") &uarr;
+
+
+        script(src='/static/js/jquery.json.js')
+        script(src='/static/js/jquery-ui.min.js')
+        script(src='/static/slick/slick.min.js')
+        script(src='/static/js/fotorama.js', charset='utf-8')
+        script(src='/static/js/script_page.js', charset='utf-8')
+        script(src='/static/js/bootstrap.min.js', charset='utf-8')
+
+
+        script(type='text/javascript').
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function () {
+                    try {
+                        w.yaCounter38755825 = new Ya.Metrika({
+                            id: 38755825,
+                            clickmap: true,
+                            trackLinks: true,
+                            accurateTrackBounce: true,
+                            webvisor: true
+                        });
+                    } catch (e) {
+                    }
+                });
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () {
+                        n.parentNode.insertBefore(s, n);
+                    };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/watch.js";
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else {
+                    f();
+                }
+            })(document, window, "yandex_metrika_callbacks");
+        noscript
+            div
+                img(src='https://mc.yandex.ru/watch/38755825', style='position:absolute; left:-9999px;', alt='')
+        // /Yandex.Metrika counter
+        include includes/counters.pug

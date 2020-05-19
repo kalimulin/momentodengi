@@ -1,0 +1,53 @@
+extends layout
+
+block content
+    form#crmForm(action='#', method='post')
+        //input(type='hidden', name='_csrf', value=csrfToken)
+        .section
+            label Фамилия
+            input#lastname(type='text', name='lastname', placeholder='Введите фамилию')
+            .warning Поле не должно содержать цифры и специальные символы
+        .section
+            label Имя
+            input#firstname(type='text', name='firstname', placeholder='Введите имя')
+            .warning Поле не должно содержать цифры и специальные символы
+        .section
+            label Отчество
+            input#middlename(type='text', name='middlename', placeholder='Введите отчество')
+            .warning Поле не должно содержать цифры и специальные символы
+        .section
+            label Дата рождения
+            input#birthdate(type='date', name='birthdate', placeholder='Введите дату рождения')
+            .warning Неверный формат даты либо вам меньше 18 лет
+        .section
+            label Сумма займа (руб.)
+            input#contractsum(type='text', value=contract_sum, form='price', disabled='')
+            .slider.money
+        .section
+            label Срок займа (дни)
+            input#contractperiod(type='text', value=contract_period, form='time', disabled='')
+            .slider.days
+        .section
+            label Дополнительные опции
+            label
+                input#old(type='checkbox', name='addition_options', value='old')
+                |  Я пенсионер
+        .section
+            label Номер телефона
+            input#personphone(type='tel', name='personphone', placeholder='Введите номер телефона')
+            .warning Вводите телефон начиная с 9 и без посторонних символов
+        .section
+            label
+                input#consent(type='checkbox', name='addition_options', value='consent')
+                |  Даю согласие на обработку моих персональных данных
+        .section
+            input#btn_send.disabled_btn(disabled='disabled', type='submit', onclick="yaCounter38755825.reachGoal('send'); console.log('goal send button was reached');", value='Отправить')
+            .warning Заполнены не все данные
+    form#resultCRM
+        .result
+            p
+                | Заявка отправлена!
+                br
+                | Совсем скоро мы вам перезвоним
+
+

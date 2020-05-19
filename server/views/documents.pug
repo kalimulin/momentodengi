@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  ul.files
+    each doc in documents
+      li
+        a.file.pdf(href='/media/'+doc.file_data, target='_blank')
+          b= doc.file_name

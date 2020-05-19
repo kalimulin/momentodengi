@@ -1,0 +1,16 @@
+.slider {
+  height: auto !important;
+  .items {
+    .slider-item {
+      z-index: auto !important;
+      position: relative;
+      .wrap {
+        position: relative;
+        text-align: center;
+        img {
+          max-width:100%;
+        }
+      }
+    }
+  }
+}

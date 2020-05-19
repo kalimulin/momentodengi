@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  a(href='#' onclick='javascript:history.back(); return false;') Назад к списку новостей
+  br
+  br
+  -var date = news_item.pub_date.toLocaleString('ru-RU');
+  .content
+    .pub-date= date
+    .fotorama
+      each img in news_item.images
+        img(src='/media/' + img.image_source)
+    div!= news_item.article
+    hr
+    a(href='#' onclick='javascript:history.back(); return false;') Назад к списку новостей
+    br
+    br

@@ -1,0 +1,566 @@
+
+////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// modals ////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
+@media (min-width: 0) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background-color: #f2f2f2;
+    border-left: 1px #dadada solid;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #cbcbcb;
+    -webkit-border-radius: 2px;
+    &:hover {
+      background-color: #8a8a8a;
+    }
+  }
+  .shadowed {
+    position: fixed;
+    display: none;
+    background: rgba(0, 0, 0, 0.25);
+    height: 100%;
+    width: 100%;
+    z-index: 900;
+    &.opened {
+      display: table;
+      .window {
+        opacity: 1 !important;
+      }
+    }
+    .windows {
+      max-height: 100%;
+      width: 100%;
+      display: table-cell;
+      vertical-align: middle;
+      padding: 0 64px;
+      .window {
+        background: #fff;
+        max-width: 960px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        margin: 64px auto;
+        border-radius: 4px;
+        .head {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.0625);
+        }
+        .body {
+          overflow: hidden;
+          overflow-y: scroll;
+          max-height: 480px;
+          .content p {
+            margin: 30px;
+            font-size: 10pt;
+          }
+        }
+      }
+    }
+  }
+  .windows .actions {
+    padding: 8px;
+  }
+  // .actions > * {}
+  .windows .actions {
+    span {
+      float: left;
+      margin: 0 8px;
+      color: rgba(0, 0, 0, 0.5);
+      font-family: "Roboto";
+    }
+    a {
+      display: block;
+      float: left;
+      z-index: 20;
+      height: 48px;
+      width: 48px;
+      margin-left: 1px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+      border-radius: 50%;
+      position: relative;
+      -webkit-transition: all .1s ease-in-out;
+      -moz-transition: all .1s ease-in-out;
+      transition: all .1s ease-in-out;
+      &:hover, &:active {
+        opacity: 1;
+        z-index: 10;
+      }
+    }
+  }
+  .icon-close {
+    //background-image: url('icons/close-24.png');
+    background-image: url('../images/gfx/ic_close_24px.svg');
+  }
+  .dialogbuttons {
+    margin: 0 20px;
+    text-align: left;
+    font-size: 0;
+    overflow: hidden;
+    display: block;
+    height: 34px;
+    a {
+      display: block;
+      position: relative;
+      float: left;
+      padding: 0 16px;
+      min-width: 56px;
+      line-height: 34px;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #333;
+      font-family: 'Roboto';
+      font-size: 10pt;
+      text-align: center;
+      border-radius: 4px;
+    }
+    .left > a.primary {
+      margin-right: 16px;
+    }
+    a {
+      &.primary {
+        background: rgb(170, 198, 15);
+        background: -moz-linear-gradient(top, rgba(170, 198, 15, 1) 0%, rgba(128, 166, 27, 1) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(170, 198, 15, 1)), color-stop(100%, rgba(128, 166, 27, 1)));
+        background: -webkit-linear-gradient(top, rgba(170, 198, 15, 1) 0%, rgba(128, 166, 27, 1) 100%);
+        background: -o-linear-gradient(top, rgba(170, 198, 15, 1) 0%, rgba(128, 166, 27, 1) 100%);
+        background: -ms-linear-gradient(top, rgba(170, 198, 15, 1) 0%, rgba(128, 166, 27, 1) 100%);
+        background: linear-gradient(to bottom, rgba(170, 198, 15, 1) 0%, rgba(128, 166, 27, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aac60f', endColorstr='#80a61b',GradientType=0 );
+        color: #fff;
+      }
+      &.secondary {
+        color: #333;
+      }
+      &:hover {
+        background: #eee;
+      }
+      &.primary:hover {
+        background: rgb(170, 198, 15);
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .shadowed {
+    .window {
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      right: 32px;
+      bottom: 32px;
+      padding: 0 0 0 0;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      max-width: 100% !important;
+      overflow: hidden;
+    }
+    .windows .window .body {
+      position: absolute;
+      top: 64px;
+      width: 100%;
+      bottom: 74px;
+      max-height: none;
+    }
+    .window .foot {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      right: 32px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .shadowed.appointment .steps table td a {
+    font-size: 8pt;
+  }
+  .specialists .specialist {
+    float: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+  .services .service {
+    float: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-right: 0 !important;
+    label span {
+      padding: 27px 16px;
+      b {
+        display: block;
+      }
+    }
+  }
+  .shadowed.appointment .date-time-select {
+    > div {
+      float: none;
+      width: 100%;
+    }
+    .time-select select {
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      height: auto;
+    }
+  }
+  .result span {
+    font: 14pt 'Roboto';
+  }
+}
+///////////////////////// end modals ///////////////////////////
+
+///////////////////////////////////////////////////////////////
+//////////////////////// headbody /////////////////////////////
+///////////////////////////////////////////////////////////////
+.head {
+  padding: 0 0 0 0;
+  line-height: 64px;
+  overflow: hidden;
+}
+
+.foot {
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.0625);
+}
+
+.body .head {
+  line-height: 48px;
+  padding: 0 0 0 20px;
+}
+
+.foot {
+  line-height: 48px;
+  padding: 20px 0 0 0;
+}
+
+.head .actions {
+  padding-left: 16px;
+}
+
+.body .head .actions a {
+  background-size: 16px !important;
+  margin: 0px 0;
+  width: 32px;
+  height: 32px;
+}
+
+.head .left {
+  overflow: hidden;
+  float: none;
+  > * {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.windows {
+  .head {
+    padding: 0 0 0 30px;
+    h2 {
+      margin: 0;
+    }
+  }
+  .foot {
+    padding: 20px 0;
+  }
+}
+
+div.body {
+  padding: 0;
+  > p {
+    margin: 20px 30px;
+    font-size: 10pt;
+    font-family: 'Roboto';
+    color: #000;
+    &:last-child {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+/////////////////// end headbody ///////////////////////////
+
+///////////////////////////////////////////////////////////
+////////////////// forms //////////////////////////////////
+///////////////////////////////////////////////////////////
+form.classic {
+  padding: 0 20px;
+  margin: 0 0;
+  position: relative;
+  .dialogbuttons {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .field {
+    overflow: hidden;
+    margin: 20px 0;
+    color: #666;
+    width: 100%;
+    &.sm {
+      width: 25%;
+    }
+    &.lg {
+      width: 100%;
+    }
+  }
+  p {
+    overflow: hidden;
+    margin: 2.5em 0;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Roboto';
+    font-size: 10pt;
+    i {
+      display: inline-block;
+      // float: right;
+      font-size: 8pt;
+      line-height: 10pt;
+      font-family: "Arial";
+      padding-top: 4px;
+    }
+    &.checkbox {
+      display: block;
+      margin-bottom: 0;
+      font-family: 'Roboto';
+      font-size: 10pt;
+      color: #000;
+      input[type='checkbox'] {
+        display: block;
+        float: left;
+        margin-top: 3px;
+        margin-right: 6px;
+      }
+    }
+  }
+  select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background: #fff;
+    position: relative;
+  }
+  input {
+    &[type='datetime-local'], &[type='password'], &[type='text'] {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      background: #fff;
+      position: relative;
+    }
+    &[type='radio'] {
+      display: block;
+      float: left;
+      margin: 2px 4px 0 0;
+    }
+  }
+  textarea {
+    display: block;
+    font-size: 10pt;
+    height: 100px;
+    width: 100%;
+    border-radius: 3px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+  .field .switch-editor {
+    display: block;
+    position: absolute;
+    right: 42px;
+    margin: -24px 0;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    // background-image: url(svg/ic_settings_ethernet_24px.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    &:hover {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+  }
+  input {
+    &[type='text'], &[type='password'], &[type='datetime-local'] {
+      font-family: 'Arial';
+      font-size: 10pt;
+      padding: 6px;
+      border-radius: 2px;
+      border: 1px solid;
+      border-color: rgba(0, 0, 0, 0.15);
+      display: block;
+      position: relative;
+    }
+  }
+  textarea {
+    font-family: 'Arial';
+    font-size: 10pt;
+    padding: 6px;
+    border-radius: 2px;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.15);
+    display: block;
+    position: relative;
+  }
+  select {
+    font-family: 'Arial';
+    font-size: 10pt;
+    padding: 6px;
+    border-radius: 2px;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.15);
+    display: block;
+    position: relative;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      // background-image: url(icons/icon-ios7-arrow-down-16.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+  input {
+    &[type='datetime-local'] {
+      padding-top: 3px;
+      padding-bottom: 4px;
+    }
+    &[type='submit'] {
+      display: inline-block;
+      text-decoration: none;
+      background: #72c8fa;
+      color: #fff;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      margin-right: 12px;
+      height: 28px;
+      line-height: 28px;
+      min-width: 54px;
+      outline: 0;
+      padding: 0 8px;
+      cursor: pointer;
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////
+////////////////// slick slider ///////////////////////////
+///////////////////////////////////////////////////////////
+
+.slick-slider {
+  position: relative;
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  &:focus {
+    outline: none;
+  }
+  &.dragging {
+    cursor: pointer;
+    cursor: hand;
+  }
+}
+
+.slick-slider {
+  .slick-track, .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  &:before {
+    display: table;
+    content: '';
+  }
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+  float: right;
+}
+
+.slick-slide {
+  img {
+    display: block;
+  }
+  &.slick-loading img {
+    display: none;
+  }
+  &.dragging img {
+    pointer-events: none;
+  }
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}

@@ -1,0 +1,84 @@
+extends layout
+
+block content
+    style(type='text/css').
+        .h1-job1 {
+            text-align: center;
+            font-weight: bold;
+            margin: 30px 0 10px 0 !important;
+        }
+
+        .h1-job2 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 32px;
+            margin: 10px 0 !important;
+        }
+
+        .h1-job3 {
+            font-weight: bold;
+            font-size: 24px;
+            margin: 10px 0 !important;
+            text-align: left !important;
+        }
+
+        .h3-job {
+            font-weight: bold !important;
+            margin: 18px 0 10px 0 !important;
+        }
+
+        .ul-job li {
+            font-weight: bold;
+            list-style: none !important;
+            margin-left: 0 !important;
+        }
+
+        .tb-job {
+            border: 0 !important;
+            width: 500px;
+            margin: 30px auto;
+        }
+
+        .tb-job td {
+            border: 0 !important;
+            width: 50%;
+            padding: 0 !important;
+        }
+
+        .font-gray {
+            color: #666 !important;
+        }
+    h1.h1-job1.font-gray Объявляется набор
+    h1.h1-job2 сотрудников в резерв
+    h3.h3-job.font-gray Требования:
+    ul.ul-job.font-gray
+        li Образование среднее/ср.специальное/неполное высшее/высшее
+        li Уверенный пользователь ПК (Word)
+        li Навыки делового общения по телефону, грамотная, чистая речь
+        li Дисциплинированность
+    h3.h3-job.font-gray Условия:
+    ul.ul-job.font-gray
+        li Оформление по ТК РФ (все социальные гарантии)
+        li Обучение за счет компании
+        li Удобный график работы
+    h3.h3-job
+        b Должностные обязанности:
+    ul.ul-job
+        li
+            b
+                | Консультирование клиентов в офисе продаж по вопросам предоставления краткосрочных займов
+    table.tb-job
+        tr
+            td
+                h1.h1-job3.font-gray Звони и приходи на собеседование
+            td
+                h1.h1-job2 89678218126
+    p
+        b Телефон:
+        |  8 (8512) 30 62 93
+    p
+        b E-mail:
+        a(href='mail:to') md_personal@bk.ru
+    hr
+
+

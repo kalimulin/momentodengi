@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  -var date = news_item.pub_date.toLocaleString('ru-RU');
+  .content
+    .pub-date= date
+    .fotorama
+      each img in news_item.images
+        img(src='/media/' + img.image_source)
+    div!= news_item.article
+    hr
+

@@ -1,0 +1,15 @@
+{
+  "database" : {
+    "connectionString" : "postgres://momentosite:peqof0xXqapuzin@localhost:5432/momentosite"
+  },
+  "users" : [
+    {
+      "id" : 1,
+      "login" : "mdadmin",
+      "password" : "qapuzinpeqof0xX"
+    }
+  ],
+  "jwt" : {
+    "secret" : "apc5mei$xofQZ]"
+  }
+}

@@ -1,0 +1,182 @@
+/*
+ * Base structure
+ */
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+/*
+ * Typography
+ */
+/*
+ * Sidebar
+ */
+/* Sidebar navigation */
+/*
+ * Dashboard
+ */
+/* Placeholders */
+body {
+  padding-top: 3.5rem;
+}
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
+}
+button {
+  cursor: pointer;
+}
+#preloader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  transition: 400ms;
+}
+#preloader img {
+  margin: auto;
+}
+#username {
+  color: #fff;
+}
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid #eee;
+  padding-left: 0;
+  padding-right: 0;
+}
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+.sidebar .nav-item {
+  width: 100%;
+}
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+.sidebar .nav-link {
+  border-radius: 0;
+}
+.placeholders {
+  padding-bottom: 3rem;
+}
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.main {
+  margin: 10px;
+}
+#navbar {
+  display: none;
+}
+#navbar .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+#navbar .navbar-nav .nav-link:active,
+#navbar .navbar-nav .nav-link:focus {
+  color: #ffffff;
+}
+.fr-wrapper + div,
+.fr-counter + div {
+  display: none;
+}
+.section-page {
+  display: none;
+}
+.btngroup {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+}
+#login .form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+#login .form-signin .form-signin-heading,
+#login .form-signin .checkbox {
+  margin-bottom: 10px;
+}
+#login .form-signin .checkbox {
+  font-weight: normal;
+}
+#login .form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+#login .form-signin .form-control:focus {
+  z-index: 2;
+}
+#login .form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#login .form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.images-preview {
+  display: flex;
+}
+.images-preview .img-preview {
+  position: relative;
+}
+.images-preview .img-preview img {
+  height: 100px;
+  margin: 10px;
+  border: 1px solid grey;
+}
+.images-preview .img-preview i {
+  color: red;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  transition: 400ms;
+  cursor: pointer;
+}
+.images-preview .img-preview i:hover {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#news nav .nav-item,
+#docs nav .nav-item,
+#offices nav .nav-item {
+  cursor: pointer;
+}
+#news nav .nav-item .nav-link,
+#docs nav .nav-item .nav-link,
+#offices nav .nav-item .nav-link {
+  transition: 400ms;
+  margin-bottom: 0;
+}
+#news nav .nav-item .nav-link:hover,
+#docs nav .nav-item .nav-link:hover,
+#offices nav .nav-item .nav-link:hover {
+  background-color: #7abaff;
+}
+#news nav .nav-item .nav-link span,
+#docs nav .nav-item .nav-link span,
+#offices nav .nav-item .nav-link span {
+  font-size: 12px;
+  color: blue;
+}

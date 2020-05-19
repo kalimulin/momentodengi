@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .content
+    each news_item in news
+      h2
+        a(href='/news/'+news_item.id)= news_item.header
+      -var date = news_item.pub_date.toLocaleString('ru-RU');
+      .pub-date= date
+      .fotorama
+        each img in news_item.images
+          img(src='/media/'+img.image_source)
+      hr
+    nav.pagination
+      ul
+        if (page > 1)
+          li.prev
+            a(href='/press?page='+(page-1)) &nbsp;&nbsp;
+        if (page > 2)
+          li
+            a(href='/press?page=' + (+page-2))= page-2
+        if (page > 1)
+          li
+            a(href='/press?page=' + (+page-1))= page-1
+        li.current
+          a(href='/press?page='+page)= page
+        if (page < (countPages))
+          li
+            a(href='/press?page='+(+page+1))= page+1
+        if (page < (countPages-1))
+          li
+            a(href='/press?page='+(+page+2))= page+2
+        if (page < countPages)
+          li.next
+            a(href='/press?page='+(+page+1)) &nbsp;&nbsp;
+
+
+

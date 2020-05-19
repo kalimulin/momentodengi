@@ -1,0 +1,5 @@
+build/*.js
+config/*.js
+index.html
+main.js
+vue-datepicker-local/*

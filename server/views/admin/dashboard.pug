@@ -1,0 +1,225 @@
+mixin add_office_form
+    form.office_upload(action='/pro_api/office_upload', method='post', enctype='multipart/form-data')
+        .form-check
+            label.form-check-label
+                input.form-check-input(type='checkbox', name='active')
+                |   Офис активен
+        .form-group.row
+            .col-sm-4
+                label Имя офиса
+            .col-sm-8
+                input.form-control(name="name", required)
+        .form-group.row
+            .col-sm-4
+                label Регион
+            .col-sm-8
+                select.form-control(name="region")
+        .form-group.row
+            .col-sm-4
+                label Город
+            .col-sm-8
+                input.form-control(name="city", required)
+        .form-group.row
+            .col-sm-4
+                label Адрес
+            .col-sm-8
+                input.form-control(name="address", required)
+        .form-group.row
+            .col-sm-4
+                label Координаты
+            .col-sm-4
+                input.form-control(name="latitude", placeholder="Широта", required)
+            .col-sm-4
+                input.form-control(name="longitude", placeholder="Долгота", required)
+        .form-group.row
+            .col-sm-4
+                label Время обеда
+            .col-sm-8
+                input.form-control(name="dinner")
+        .form-group.row
+            .col-sm-4
+                label Время работы в будни
+            .col-sm-8
+                input.form-control(name="weekdays", required)
+        .form-group.row
+            .col-sm-4
+                label Время работы в выходные
+            .col-sm-4
+                input.form-control(name="saturday", placeholder="в субботу")
+            .col-sm-4
+                input.form-control(name="sunday", placeholder="в воскресенье")
+
+        .row
+            .col-md-6
+                input(type='hidden', name='id')
+                input.btn.btn-success(type='submit', value='Отправить', data-upload-file-button='')
+            .col-md-6
+                .form-group
+                    label Изображение офиса: &nbsp;&nbsp;
+                    input.file-input(type='file', name='image', value='Выберите изображение')
+                .office-image
+                    img(src=`/media/not-photo.jpg`, width='200px')
+
+mixin add_document_form
+    form.document_upload(action='/pro_api/images_upload', method='post', enctype='multipart/form-data')
+        .form-group
+            input.form-control(name="name", placeholder="Имя документа", required)
+            input(type='hidden', name='id')
+        .form-group
+            input.file-input(type='file', name='image')
+        input.btn.btn-success(type='submit', value='Отправить', data-upload-file-button='')
+
+mixin add_news_form
+    div.add-news-form
+        form.news_upload(action='', method='post', enctype='multipart/form-data')
+            .form-group
+                input.form-control(name="title", placeholder="Заголовок новости")
+                input(type='hidden', name='id')
+            .form-group
+                textarea.news-editor.form-control(name="editor_content")
+            br
+            .images-preview
+            .form-group
+                input.file-input(type='file', name='image', multiple, value='Выберите изображения')
+            input.btn.btn-success(type='submit', value='Отправить', data-upload-file-button='')
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        link(rel='icon', href='../../../../favicon.ico')
+        title MD Admin
+        // Bootstrap core CSS
+        link(href='/bootstrap4/css/bootstrap.min.css', rel='stylesheet')
+        // Custom styles for this template
+        link(href='/bootstrap4/css/dashboard.css', rel='stylesheet')
+    body
+        div#preloader
+            img(src='/bootstrap4/img/preloader_10.gif')
+        nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark#navbar
+            a.navbar-brand(href='/md-admin') MDAdmin
+            button.navbar-toggler.d-lg-none(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarsExampleDefault.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item
+                        a.nav-link(href='dashboard')
+                            | Главная
+                    li.nav-item
+                        a.nav-link(href='news') Новости
+                    li.nav-item
+                        a.nav-link(href='docs') Документы
+                    li.nav-item
+                        a.nav-link(href='offices') Офисы
+                    li.nav-item
+                        a.nav-link(href='#', onclick='logout()') Выход
+                div.mt-2.mt-md-0
+                    div#username
+
+        .container-fluid
+            //////////////////////// Dashboard
+            .row.section-page#dashboard
+                .main.col-xs-12(role='main')
+                    h1 Панель управления
+                    section
+                        ul#pills-tab.nav.nav-pills.mb-3(role='tablist')
+                            li.nav-item
+                                a#pills-news-tab.nav-link.active(data-toggle='pill', href='#pills-news', role='tab', aria-controls='pills-home', aria-expanded='true') Добавить новость
+                            li.nav-item
+                                a#pills-profile-tab.nav-link(data-toggle='pill', href='#pills-docs', role='tab', aria-controls='pills-profile', aria-expanded='true') Добавить документ
+                        #pills-tabContent.tab-content
+                            #pills-news.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='pills-home-tab')
+                                +add_news_form
+                            #pills-docs.tab-pane.fade(role='tabpanel', aria-labelledby='pills-profile-tab')
+                                +add_document_form
+
+            //////////////////////// News
+            .row.section-page#news
+                nav.col-sm-4.col-md-4.d-none.d-sm-block.bg-light.sidebar
+                    .btngroup(role='group', aria-label='Basic example')
+                        button.btn.btn-outline-success(type='button', onclick='clearNewsEditForm()')
+                            i.fa.fa-plus(aria-hidden='true', title='Добавить новость')
+                        button.btn.btn-outline-warning(type='button', onclick='getArticles()')
+                            i.fa.fa-refresh(aria-hidden='true', title='Обновить список')
+                    ul.nav.nav-pills.flex-column#news-headers
+                main.col-sm-8.ml-sm-auto.col-md-8.pt-3(role='main')
+                    h1 Новости
+                    section
+                        h3.title Добавить новость
+                        br
+                        +add_news_form
+            //////////////////////// Documents
+            .row.section-page#docs
+                nav.col-sm-4.col-md-4.d-none.d-sm-block.bg-light.sidebar
+                    .btngroup(role='group', aria-label='Basic example')
+                        button.btn.btn-outline-success(type='button', onclick='clearDocsEditForm()')
+                            i.fa.fa-plus(aria-hidden='true', title='Добавить новость')
+                        button.btn.btn-outline-warning(type='button', onclick='getArticles("document")')
+                            i.fa.fa-refresh(aria-hidden='true', title='Обновить список')
+                    ul.nav.nav-pills.flex-column#docs-headers
+                main.col-sm-8.ml-sm-auto.col-md-8.pt-3(role='main')
+                    h1 Документы
+                    section
+                        h3.title Добавить документ
+                        br
+                        +add_document_form
+                        br
+                        button.btn.btn-danger.document_remove Удалить документ
+            //////////////////////// Offices
+            .row.section-page#offices
+                nav.col-sm-4.col-md-4.d-none.d-sm-block.bg-light.sidebar
+                    .btngroup(role='group', aria-label='Basic example')
+                        button.btn.btn-outline-success(type='button', onclick='clearDocsEditForm()')
+                            i.fa.fa-plus(aria-hidden='true', title='Добавить офис')
+                        button.btn.btn-outline-warning(type='button', onclick='getArticles("office")')
+                            i.fa.fa-refresh(aria-hidden='true', title='Обновить список')
+                    ul.nav.nav-pills.flex-column#offices-headers
+                main.col-sm-8.ml-sm-auto.col-md-8.pt-3(role='main')
+                    h1 Офисы
+                    section
+                        h3.title Добавить офис
+                        br
+                        +add_office_form
+                        br
+                        button.btn.btn-danger.document_remove Удалить офис
+
+
+
+            //////////////////////// Login
+            .row.section-page#login
+                col-xs-12.container-fluid
+                    form.form-signin#form-signin
+                        h2.form-signin-heading MD Admin
+                        label.sr-only(for='inputLogin') Email address
+                        input#inputLogin.form-control(placeholder='Имя пользователя', required='', autofocus='', name='login')
+                        label.sr-only(for='inputPassword') Password
+                        input#inputPassword.form-control(type='password', placeholder='Пароль', required='', name='password')
+                        button.btn.btn-lg.btn-primary.btn-block(type='submit') Войти
+            hr
+        //
+          Bootstrap core JavaScript
+          ==================================================
+        // Placed at the end of the document so the pages load faster
+        script(src='/bootstrap4/js/jquery-3.2.1.min.js')
+        script(src='/bootstrap4/js/jquery.md5.js')
+        script(src='/bootstrap4/js/jquery.toast.min.js')
+        link(href='/bootstrap4/css/jquery.toast.min.css', rel='stylesheet')
+
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/css/froala_editor.pkgd.min.css', rel='stylesheet', type='text/css')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/css/froala_style.min.css', rel='stylesheet', type='text/css')
+        script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js')
+        script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js')
+        script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0//js/froala_editor.pkgd.min.js')
+
+        link(href='/bootstrap4/css/font-awesome.min.css', rel='stylesheet')
+        script(src='/bootstrap4/js/popper.min.js')
+        script(src='/bootstrap4/js/bootstrap.min.js')
+        // IE10 viewport hack for Surface/desktop Windows 8 bug
+        script(src='/bootstrap4/js/ie10-viewport-bug-workaround.js')
+        script(src='/bootstrap4/js/redux.min.js')
+        script(src='/bootstrap4/js/fileUpload.js')
+        script(src='/bootstrap4/js/common.js')

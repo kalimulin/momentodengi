@@ -1,0 +1,275 @@
+doctype html
+html
+    head
+        title МоментоДеньги
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no')
+        meta(name='openstat-verification', content='9a7b460feefee5df83e41fa3217f94c90eb2a410')
+        link(href='https://fonts.googleapis.com/css?family=Open Sans:100,300,400,700,400italic|Roboto:100,400,400italic,300,700&subset=latin,cyrillic-ext,cyrillic,latin-ext', rel='stylesheet', type='text/css')
+        link(rel='stylesheet', type='text/css', href='/static/fonts/stylesheet.css')
+        link(rel='stylesheet', type='text/css', href='/static/style/style.css')
+        link(rel='stylesheet', href='https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+        link(rel='stylesheet', type='text/css', href='/static/style/headbody.css')
+        script(src='/static/js/jquery.min.js')
+    body
+        block content
+            .fixed
+                .shadowed
+                    .windows
+                        .window
+                            .head
+                                .right.actions
+                                    a.icon-close(href='#', title='Закрыть окно')
+                                        span
+                                .left
+                                    h2 Выберите регион
+                            .body
+                                .overflow
+                                    ul.location
+                            .foot
+                                .dialogbuttons
+                                    .left
+                                        a.primary(href='#') Сохранить
+                                    .right
+                                        a.window_close(href='#') Отмена
+            .layout
+                .bg
+                    .cover
+                        .header
+                            .wrapper
+                                .logo
+                                    route-link(to='/', title='Моменто Деньги')
+                                .phone
+                                    span.number= company_phone
+                                    span.notice звонок бесплатный
+                                .location
+                                    | Регион:
+                                    span {{ region.region_name }}
+                        .promo
+                            .wrapper
+                                form.calculator(action='/openloan', method='post')
+                                    .field
+                                        input#sum(type='text', name='sum', value='10000 руб.', placeholder='Введите сумму')
+                                        span.label Я хочу взять
+                                        .slider.money
+                                    .field
+                                        input#period(type='text', name='period', value='12 дней', placeholder='Укажите срок')
+                                        span.label Срок займа
+                                        .slider.days
+                                    .field.back
+                                        input#result(type='text', value='12340 руб.', disabled='disabled')
+                                        span.label.large Я верну *
+                                    .end
+                                        input(type='submit', onclick="yaCounter38755825.reachGoal('getMoney'); console.log('goal get money button was reached');", value='Получить деньги')
+                                    div
+                                        p
+                                            | * Рассчитанная к возврату сумма является примерной и может изменяться в зависимости от вида займа и применяемого к нему снижения процентной ставки (скидки), определяемого исходя из индивидуальных характеристик заёмщика и указанного в разделе сайта «Каталог займов».
+                                .slogan
+                                    .part
+                                        div
+                                            h1 Хотите сделать подарок близким, но следующей пенсии ещё ждать и ждать?
+                                            p «МОМЕНТО ДЕНЬГИ» помогут.
+                                    .part
+                                        div
+                                            h1 Срочная покупка или внезапный ремонт?
+                                            p С «МОМЕНТО ДЕНЬГИ» вы можете себе это позволить.
+                                    .part
+                                        div
+                                            h1
+                                                | Отпуск уже скоро, а скопить ничего не получилось?
+                                            p Всё в порядке — ведь есть «МОМЕНТО ДЕНЬГИ».
+                .features
+                    .tabs
+                        .wrapper
+                            a.active(href='#')
+                                span Как получить деньги
+                            a(href='#')
+                                span Клиентам
+                    .overflow.slick
+                        .feature
+                            .wrapper
+                                p
+                                    | Нужны деньги и очень срочно? Отпуск, ремонт, свадьба, день рождения, лечение, большая покупка? Взять в долг или оформить кредит не получается? Срочный заём от «МОМЕНТО ДЕНЬГИ» — отличное решение. Получить кредит без справок невозможно, а тут вы берёте с собой только паспорт и быстрый заём у вас всего через 15 минут. В «МОМЕНТО ДЕНЬГИ» вы можете получить до 30 000 руб на срок до 30 дней наличными или на банковскую карту.
+                                .steps
+                                    .step
+                                        h3
+                                            | Оставьте заявку
+                                            br
+                                            | на сайте
+                                    .step
+                                        h3
+                                            | Наши операторы
+                                            br
+                                            | перезвонят вам
+                                    .step
+                                        h3
+                                            | Получите деньги
+                                            br
+                                            | в ближайшем офисе
+                        .feature
+                            .wrapper
+                                h3 Почему вы выбираете «МОМЕНТО ДЕНЬГИ»?
+                                .theses
+                                    .thesis
+                                        .icon
+                                        h3 Просто
+                                        p
+                                            | Вам надо только принести паспорт, заполнить анкету и быстрый заём наличными у вас в кармане. Ещё проще? Заполните заявку на сайте, и наши специалисты сами свяжутся с вами.
+                                    .thesis
+                                        .icon
+                                        h3 Быстро
+                                        p
+                                            | Через полчаса нужная сумма уже у вас в руках. Вы можете получить извещение об одобрении быстрого займа на мобильный телефон или просто подождать в офисе.
+                                    .thesis
+                                        .icon
+                                        h3 Выгодно
+                                        p
+                                            | Вы берёте деньги в долг под самый низкий процент на рынке микрофинансирования. Хотите ещё дешевле? Захватите справку 2НДФЛ, пенсионное удостоверение или военный билет — и проценты станут еще ниже.
+                                    .thesis
+                                        .icon
+                                        h3 Удобно
+                                        p
+                                            | Вы можете погасить быстрый заём в офисах «МОМЕНТО ДЕНЬГИ» и через любой коммерческий банк. Сложные обстоятельства и у вас не получается отдать деньги вовремя? Мы продлим срок погашения займа, ведь мы работаем для вас.
+                                p
+                                    | В настоящее время офисы обслуживания «МОМЕНТО ДЕНЬГИ» есть уже в 10 регионах России: Астраханская, Волгоградская, Липецкая, Тамбовская, Воронежская, Ростовская и Саратовская области, Республика Калмыкия, Ставропольский и Краснодарский края. И наша сеть постоянно расширяется.
+                                .get
+                                    a(href='/openloan/') Получить заем
+                .features-mobile
+                    .wrapper
+                        .feature
+                            a(href='#')
+                                span.icon-find Найти наш офис
+                        .feature
+                            a(href='#')
+                                span.icon-cash Что такое микрофинансирование?
+                        .feature
+                            a(href='#')
+                                span.icon-handshake Информация для инвесторов
+                .mapblock
+                    #map-canvas.map
+                    .wrapper
+                        .selector
+                            .selector-head
+                                a.city(href='javascript:void(0)')
+                                    | Ваш регион:
+                                    span {{ region.region_name }}
+                            .selector-body
+                                ul
+                .footer
+                    .wrapper
+                        .right
+                            .inside
+                                a(href='http://www.npmir.ru/', target='_blank')
+                                    img(src='../../static/style/gfx/mirlogo.png', alt='')
+                                a(href='http://www.cbr.ru/', target='_blank')
+                                    img(src='../../static/style/gfx/cbrlogo.png', alt='')
+                        .left
+                            ul
+                                li
+                                    h4 Сотрудничество
+                                li
+                                    a(href='/rent/') Арендодателям
+                                li
+                                    a(href='/ad/') Рекламодателям
+                            ul
+                                li
+                                    h4 Полезные ссылки
+                                li
+                                    a(href='/news') Новости
+                                li
+                                    a(href='/press') Пресса
+                                li
+                                    a(href='/loans/') Каталог займов
+                                li
+                                    a(href='/closeloan/') Как погасить заём
+                                li
+                                    a(href='/contacts/') Контакты
+                            ul
+                                li
+                                    h4 О компании
+                                li
+                                    a(href='/iamthelaw/') Законодательная база
+                                li
+                                    a(href='/documents/') Документы
+                                li
+                                    a(href='/jobs/') Вакансии
+                                li
+                                    a(href='/about/') О компании
+                .secondfooter
+                    .wrapper
+                        .left
+                            | © 2011-2017 ООО МКК «МОМЕНТО ДЕНЬГИ»
+                            br
+                            |                     Все авторские права защищены
+                        .right
+                            .social
+                                ul
+                                    li
+                                        a.vk(href='http://vk.com/momento_dengi')
+                                    li
+                                        a.fb(href='https://www.facebook.com/momentodengi')
+                                    li
+                                        a.ig(href='https://www.instagram.com/momentodengi')
+
+        script(type='text/javascript').
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function () {
+                    try {
+                        w.yaCounter38755825 = new Ya.Metrika({
+                            id: 38755825,
+                            clickmap: true,
+                            trackLinks: true,
+                            accurateTrackBounce: true,
+                            webvisor: true
+                        });
+                    } catch (e) {
+                    }
+                });
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () {
+                        n.parentNode.insertBefore(s, n);
+                    };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/watch.js";
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else {
+                    f();
+                }
+            })(document, window, "yandex_metrika_callbacks");
+        noscript
+            div
+                img(src='https://mc.yandex.ru/watch/38755825', style='position:absolute; left:-9999px;', alt='')
+
+
+
+
+        link(rel='stylesheet', type='text/css', href='/static/style/modals.css')
+        link(rel='stylesheet', type='text/css', href='/static/style/forms.css')
+        link(rel='stylesheet', type='text/css', href='/static/slick/slick.css')
+        link(rel='stylesheet', type='text/css', href='/static/css/infinity_click_to_call.css')
+
+
+        script(src='/static/js/jquery.bgswitcher.js')
+        script(src='/static/js/jquery-ui.min.js')
+        script(src='/static/slick/slick.min.js')
+        script(src='https://maps.googleapis.com/maps/api/js?v=3.exp')
+        script(src='/static/js/script.js', charset='utf-8')
+        //script(src='/static/js/infinity_click_to_call.js', charset='utf-8')
+
+        // BEGIN JIVOSITE CODE {literal}
+        script(type='text/javascript').
+            (function () {
+                var widget_id = 'Ok2pKBy1h8';
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = '//code.jivosite.com/script/widget/' + widget_id;
+                var ss = document.getElementsByTagName('script')[0];
+                ss.parentNode.insertBefore(s, ss);
+            })();
+        // {/literal} END JIVOSITE CODE
+
+        include includes/counters.pug
